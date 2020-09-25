@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Multiple Tools for Facebook by Loc Mai</title>
+  <style media="screen">
+  .message_container {
+    max-width: 1000px;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 45px;
+    }
+
+    span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    }
+
+    .message_screen {
+    padding: 15px 10px;
+    }
+
+    .bot_item {
+    margin-left: 35px;
+    }
+
+    audio{
+    width: 250px;
+    }
+
+    video{
+    margin-top:2px;
+    margin-bottom:2px;
+    max-width: 450px;
+    }
+
+    img {
+    margin-top:2px;
+    margin-bottom:2px;
+    width: 75%;
+    max-width: 450px;
+    }
+
+    .message__list {
+    padding: 0;
+    margin: 10px 0px 10px 0px;
+    list-style: none;
+    width: 100%;
+    position: relative;
+    }
+    .message__list:after {
+    content: '';
+    display: table;
+    clear: both;
+    }
+
+    .message__item {
+    max-width: 50%;
+    clear: both;
+    }
+
+    .message__item--bot {
+    float: left;
+    }
+    .message__item--bot:first-of-type .message {
+    border-top-left-radius: 20px;
+    }
+    .message__item--bot:last-of-type .message {
+    border-bottom-left-radius: 20px;
+    }
+
+    .message__item--user {
+    float: right;
+    text-align: right;
+    }
+    .message__item--user:first-of-type .message {
+    border-top-right-radius: 20px;
+    }
+    .message__item--user:last-of-type .message {
+    border-bottom-right-radius: 20px;
+    }
+
+    .message {
+    padding: 8px 15px;
+    margin-top:2px;
+    margin-bottom:2px;
+    display: inline-block;
+    text-align: left;
+    max-width: 440px;
+    }
+
+    .message--bot {
+    background-color: #eee;
+    border-radius: 3px 20px 20px 3px;
+    margin-left: 35px;
+    }
+
+    .message--user {
+    background-color: #0baaff;
+    color: #fff;
+    border-radius: 20px 3px 3px 20px;
+    }
+
+    .bot__image {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    border-radius: 20px;
+    }
+
+    .sticker{
+    max-width: 180px;
+    }
+    .bot--timer {
+      padding-left: 45px;
+    }
+    .timer {
+      font-size: smaller;
+    }
+
+  </style>
+  </head>
+  <body>
+  <div class="message_container">
+    <div class="message_screen">
+      <div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">CÓ học không nhàn</span>
+        <div class="timer bot--timer">September 17, 2018 2:58 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Ê tui nghĩ bữa nay học toán nha</span>
+        <div class="timer bot--timer">October 10, 2018 3:20 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Mệt</span>
+        <div class="timer bot--timer">October 10, 2018 3:20 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Nói thầy dùm</span>
+        <div class="timer bot--timer">October 10, 2018 3:20 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Bữa nay t cung nghỉ xin phép chi đâu</span>
+        <div class="timer">October 10, 2018 3:23 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Ừa</span>
+        <div class="timer bot--timer">October 10, 2018 3:23 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Tối nay ca 1 5h30 hã</span>
+        <div class="timer bot--timer">October 12, 2018 1:50 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/cp0/39178562_1505197616293642_5411344281094848512_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=buOMKFjyEJoAX_jyjv8&_nc_ht=scontent-xsp1-2.xx&oh=365d0e56381929e8ec1fe0894ebe6273&oe=5F91EA49" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/cp0/39178562_1505197616293642_5411344281094848512_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=buOMKFjyEJoAX_jyjv8&_nc_ht=scontent-xsp1-2.xx&oh=365d0e56381929e8ec1fe0894ebe6273&oe=5F91EA49">
+              </a>
+              <div class="timer">October 12, 2018 2:18 PM</div>
+              </div></div><div class="message__list">
+              <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+              <div class="message__item message__item--bot">
+              <a class="bot_item" href="https://scontent-xsp1-2.xx.fbcdn.net/v/t1.15752-0/cp0/e15/q65/p480x480/58461792_332338354150538_4631331473717198848_n.jpg?_nc_cat=102&_nc_sid=b96e70&efg=eyJpIjoidCJ9&_nc_ohc=MVvvhiOJWYIAX-IDU8T&_nc_ht=scontent-xsp1-2.xx&tp=3&oh=5fd721fcfc16b78cc7b0b056b4a71efa&oe=5F91FF88" target="_blank">
+              <img class="nonsticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t1.15752-0/cp0/e15/q65/p480x480/58461792_332338354150538_4631331473717198848_n.jpg?_nc_cat=102&_nc_sid=b96e70&efg=eyJpIjoidCJ9&_nc_ohc=MVvvhiOJWYIAX-IDU8T&_nc_ht=scontent-xsp1-2.xx&tp=3&oh=5fd721fcfc16b78cc7b0b056b4a71efa&oe=5F91FF88">
+              </a>
+              <div class="timer bot--timer">April 26, 2019 7:06 PM</div>
+              </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Biet dịch đoạn văn này khong</span>
+        <div class="timer bot--timer">April 26, 2019 7:06 PM</div>
+        </div><div class="message__item message__item--bot">
+              <a class="bot_item" href="https://scontent-xsp1-1.xx.fbcdn.net/v/t1.15752-0/cp0/e15/q65/p480x480/58732963_412893369532316_4811201577337487360_n.jpg?_nc_cat=111&_nc_sid=b96e70&efg=eyJpIjoidCJ9&_nc_ohc=yx_m740fjXEAX8H0s6I&_nc_ht=scontent-xsp1-1.xx&tp=3&oh=e812843184810f44e2b22a27bf7b80fd&oe=5F918F4C" target="_blank">
+              <img class="nonsticker" src="https://scontent-xsp1-1.xx.fbcdn.net/v/t1.15752-0/cp0/e15/q65/p480x480/58732963_412893369532316_4811201577337487360_n.jpg?_nc_cat=111&_nc_sid=b96e70&efg=eyJpIjoidCJ9&_nc_ohc=yx_m740fjXEAX8H0s6I&_nc_ht=scontent-xsp1-1.xx&tp=3&oh=e812843184810f44e2b22a27bf7b80fd&oe=5F918F4C">
+              </a>
+              <div class="timer bot--timer">April 26, 2019 7:10 PM</div>
+              </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Phần này nữa</span>
+        <div class="timer bot--timer">April 26, 2019 7:11 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Của lớp 10 á giải dùm coi hi</span>
+        <div class="timer bot--timer">April 26, 2019 7:11 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Giải đc cả 2 đoạn càng tốt</span>
+        <div class="timer bot--timer">April 26, 2019 7:15 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Ủa cái đoạn trên chưa điền chỗ trống nữa á</span>
+        <div class="timer">April 26, 2019 7:22 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">R đoạn dưới sửa lỗi sai thoii mà dịch nữa a</span>
+        <div class="timer">April 26, 2019 7:23 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Mà nó khong cho đáp án hù</span>
+        <div class="timer bot--timer">April 26, 2019 7:23 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Dịch đoạn trên thoii</span>
+        <div class="timer bot--timer">April 26, 2019 7:23 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Còn đoạn dưới á giải v đúng khong</span>
+        <div class="timer bot--timer">April 26, 2019 7:23 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Khoan nha</span>
+        <div class="timer">April 26, 2019 7:24 PM</div>
+        </div><div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 7:24 PM</div>
+              </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Giải coi thử đii</span>
+        <div class="timer bot--timer">April 26, 2019 7:25 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Đoạn trên làm đc làm luon :v</span>
+        <div class="timer bot--timer">April 26, 2019 7:25 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Đoạn trên 1)4 years<br />2) one of<br />3)more<br />4) nations</span>
+        <div class="timer">April 26, 2019 7:30 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Có cần dịch ko</span>
+        <div class="timer">April 26, 2019 7:30 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Dịch dùm luon hi</span>
+        <div class="timer bot--timer">April 26, 2019 7:30 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Làm cho bồ à</span>
+        <div class="timer">April 26, 2019 7:31 PM</div>
+        </div><div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 7:31 PM</div>
+              </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Có đâu thằng em nó hỏi mà ngu quá biet làm đâu</span>
+        <div class="timer bot--timer">April 26, 2019 7:31 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 7:31 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">M làm gì có em</span>
+        <div class="timer">April 26, 2019 7:31 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Em họ đó</span>
+        <div class="timer bot--timer">April 26, 2019 7:31 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Nó ở vh</span>
+        <div class="timer bot--timer">April 26, 2019 7:32 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Học 10c9 á</span>
+        <div class="timer bot--timer">April 26, 2019 7:32 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 7:32 PM</div>
+              </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Dịch ghép máy từ đó vô luon nha</span>
+        <div class="timer bot--timer">April 26, 2019 7:33 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Rồi sửa dùm phần sửa lỗi coi làm v đúng khong</span>
+        <div class="timer bot--timer">April 26, 2019 7:33 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Ủa mà world cup 4 năm 1 lần mà đúng ko</span>
+        <div class="timer">April 26, 2019 7:37 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Tui có biet khỉ khô gì đâu</span>
+        <div class="timer bot--timer">April 26, 2019 7:37 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Ủa ông ko coi đá banh a</span>
+        <div class="timer">April 26, 2019 7:38 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Coi thì có rồi á mà biet lịch hay năm gì đau</span>
+        <div class="timer bot--timer">April 26, 2019 7:38 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Thấy có trận là coi thoi</span>
+        <div class="timer bot--timer">April 26, 2019 7:38 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">4 năm 1 làn nha</span>
+        <div class="timer bot--timer">April 26, 2019 7:39 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 7:39 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Đụ</span>
+        <div class="timer">April 26, 2019 7:39 PM</div>
+        </div></div><div class="message__list">
+              <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+              <div class="message__item message__item--bot">
+              <a class="bot_item" href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/15957983_178518535959834_2105582157513621504_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=za5nSsWq8wcAX9vVldj&_nc_ht=scontent-xsp1-2.xx&oh=25487228fbcf6e17603437a130687041&oe=5F8F99E1" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/15957983_178518535959834_2105582157513621504_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=za5nSsWq8wcAX9vVldj&_nc_ht=scontent-xsp1-2.xx&oh=25487228fbcf6e17603437a130687041&oe=5F8F99E1">
+              </a>
+              <div class="timer bot--timer">April 26, 2019 7:39 PM</div>
+              </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Dịch đc chưa</span>
+        <div class="timer bot--timer">April 26, 2019 7:39 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Đang rặn</span>
+        <div class="timer">April 26, 2019 7:40 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Sao m ko nhờ trần ngân đó</span>
+        <div class="timer">April 26, 2019 7:40 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Đoạn này dễ mà nhầm nhò gì mà rặn</span>
+        <div class="timer bot--timer">April 26, 2019 7:40 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 7:40 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Thì dễ đó</span>
+        <div class="timer">April 26, 2019 7:40 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">M làm đi nhờ t chi</span>
+        <div class="timer">April 26, 2019 7:40 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Nhắc nó chi có nt gì đâu mà hỏi nó</span>
+        <div class="timer bot--timer">April 26, 2019 7:40 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Dịch đc có vài chỗ thoii</span>
+        <div class="timer bot--timer">April 26, 2019 7:41 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Còn máy cái kia dịch tiếng khơ me thì đc</span>
+        <div class="timer bot--timer">April 26, 2019 7:41 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 7:41 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Tt đang rặn</span>
+        <div class="timer">April 26, 2019 7:41 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Rặn đi lát hốt</span>
+        <div class="timer bot--timer">April 26, 2019 7:42 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-1.xx.fbcdn.net/v/t1.15752-0/cp0/e15/q65/p480x480/58551685_454200738661222_4202946930193465344_n.jpg?_nc_cat=110&_nc_sid=b96e70&efg=eyJpIjoidCJ9&_nc_ohc=zHmDWNufCfwAX_1DOcU&_nc_ht=scontent-xsp1-1.xx&tp=3&oh=5d926fc417b1a19804e9e8ea4c20630b&oe=5F90BA2B" target="_blank">
+              <img class="nonsticker" src="https://scontent-xsp1-1.xx.fbcdn.net/v/t1.15752-0/cp0/e15/q65/p480x480/58551685_454200738661222_4202946930193465344_n.jpg?_nc_cat=110&_nc_sid=b96e70&efg=eyJpIjoidCJ9&_nc_ohc=zHmDWNufCfwAX_1DOcU&_nc_ht=scontent-xsp1-1.xx&tp=3&oh=5d926fc417b1a19804e9e8ea4c20630b&oe=5F90BA2B">
+              </a>
+              <div class="timer">April 26, 2019 7:53 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">M hốt hen</span>
+        <div class="timer">April 26, 2019 7:53 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Ráng ngó đi</span>
+        <div class="timer">April 26, 2019 7:53 PM</div>
+        </div><div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 7:53 PM</div>
+              </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Ok ngó đc</span>
+        <div class="timer bot--timer">April 26, 2019 7:53 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Rặn nốt đoạn 2 hốt</span>
+        <div class="timer bot--timer">April 26, 2019 7:54 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 7:54 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Đoạn 2 là sửa đúng sai chớ gì</span>
+        <div class="timer">April 26, 2019 7:54 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Chờ tí</span>
+        <div class="timer">April 26, 2019 7:54 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Đúng òi</span>
+        <div class="timer bot--timer">April 26, 2019 7:56 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Rồi cho tui công thức câu đó luon</span>
+        <div class="timer bot--timer">April 26, 2019 7:56 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Ê m cái sửa lỗi t ko chắc đâu nha</span>
+        <div class="timer">April 26, 2019 8:08 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Mà m hỏi nó đang học unit maay</span>
+        <div class="timer">April 26, 2019 8:08 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Hay cho t mấy cái công thức nó đang ôn đi</span>
+        <div class="timer">April 26, 2019 8:08 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Cứ sửa hi nó đi học rồi tí về hỏi cho</span>
+        <div class="timer bot--timer">April 26, 2019 8:08 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Câu 1 nghĩ là because of sau nó là danh từ</span>
+        <div class="timer bot--timer">April 26, 2019 8:09 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Câu 1 với 5 đúng</span>
+        <div class="timer">April 26, 2019 8:10 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Mấy câu kia sao</span>
+        <div class="timer bot--timer">April 26, 2019 8:13 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">6 đúng</span>
+        <div class="timer">April 26, 2019 8:17 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">7 thì tui nghĩ d</span>
+        <div class="timer">April 26, 2019 8:17 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Đổi thành do they ?</span>
+        <div class="timer">April 26, 2019 8:18 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Là nãy h câu nào đúng 1567 hả</span>
+        <div class="timer bot--timer">April 26, 2019 8:32 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">7 đáp án d hả</span>
+        <div class="timer bot--timer">April 26, 2019 8:33 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Ò tui nghĩ v</span>
+        <div class="timer">April 26, 2019 8:33 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Còn máy câu kia sao</span>
+        <div class="timer bot--timer">April 26, 2019 8:34 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Mấy câu kia ko biết</span>
+        <div class="timer">April 26, 2019 8:37 PM</div>
+        </div><div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 26, 2019 8:37 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Đề qq gì nhìn vô thấy sai mẹ gì đâu</span>
+        <div class="timer">April 26, 2019 8:37 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Lát có gì gửi công thức qua thử có sửa tiếp đc khong</span>
+        <div class="timer bot--timer">April 26, 2019 8:39 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Thì gửi qua thử</span>
+        <div class="timer">April 26, 2019 8:39 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Sửa đc tui sửa cho</span>
+        <div class="timer">April 26, 2019 8:39 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Nó chưa về đợi lát nữa hi</span>
+        <div class="timer bot--timer">April 26, 2019 8:43 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/15945922_178520109293010_760996783840034816_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=NaSyFACz-4UAX8gre8V&_nc_ht=scontent-xsp1-2.xx&oh=208b4338e4c3d0bcde73bcbf13432f66&oe=5F919522" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/15945922_178520109293010_760996783840034816_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=NaSyFACz-4UAX8gre8V&_nc_ht=scontent-xsp1-2.xx&oh=208b4338e4c3d0bcde73bcbf13432f66&oe=5F919522">
+              </a>
+              <div class="timer">April 26, 2019 8:44 PM</div>
+              </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Nó nói là bà cô kêu đoạn 2 phải biet dịch với lại sau because + cái gì á</span>
+        <div class="timer bot--timer">April 26, 2019 10:48 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Sau because + clause</span>
+        <div class="timer">April 27, 2019 6:00 AM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Là phải có S V 0</span>
+        <div class="timer">April 27, 2019 6:01 AM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Kêu phải dịch nua á</span>
+        <div class="timer bot--timer">April 27, 2019 6:02 AM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Bởi vì ba cô ấy bị bệnh nặng cô ấy ko thể đến cuộc họp</span>
+        <div class="timer">April 27, 2019 6:03 AM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Bữa nay có học khong</span>
+        <div class="timer bot--timer">April 27, 2019 6:03 AM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Nghỉ</span>
+        <div class="timer">April 27, 2019 6:04 AM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Bữa nay trường mình có cựu hs về quay phim</span>
+        <div class="timer bot--timer">April 27, 2019 6:05 AM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Ủa sao m biết</span>
+        <div class="timer">April 27, 2019 6:05 AM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Hèn gì con định nó kêu nó đi đóng phim</span>
+        <div class="timer">April 27, 2019 6:05 AM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Ngta nói</span>
+        <div class="timer bot--timer">April 27, 2019 6:05 AM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Còn mượn đồng phục t nua nè</span>
+        <div class="timer bot--timer">April 27, 2019 6:05 AM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Rủ t đóng nữa mới chết</span>
+        <div class="timer bot--timer">April 27, 2019 6:06 AM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 27, 2019 6:06 AM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Đóng luôn tự</span>
+        <div class="timer">April 27, 2019 6:06 AM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Thoii nhiều người nhìn quê lắm</span>
+        <div class="timer bot--timer">April 27, 2019 6:06 AM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer">April 27, 2019 6:08 AM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Mà tự đóng chính à</span>
+        <div class="timer">April 27, 2019 6:08 AM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Đóng quần chúng chi đâu</span>
+        <div class="timer">April 27, 2019 6:08 AM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Đóng nào cũng như nhau</span>
+        <div class="timer bot--timer">April 27, 2019 6:09 AM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Có lên coi khong</span>
+        <div class="timer bot--timer">April 27, 2019 6:09 AM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Nay khối 12 nghĩ hết phải khong</span>
+        <div class="timer bot--timer">April 27, 2019 6:09 AM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Đâu có</span>
+        <div class="timer">April 27, 2019 6:09 AM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Có mấy lớp học t7 mà</span>
+        <div class="timer">April 27, 2019 6:09 AM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">A1 nó học đó</span>
+        <div class="timer">April 27, 2019 6:10 AM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Lớp tự nhien</span>
+        <div class="timer bot--timer">April 27, 2019 6:10 AM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">À tn nghỉ mà</span>
+        <div class="timer">April 27, 2019 6:10 AM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Thoii ngủ tiếp</span>
+        <div class="timer bot--timer">April 27, 2019 6:11 AM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Giống t</span>
+        <div class="timer">April 27, 2019 6:11 AM</div>
+        </div><div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/15945589_178524045959283_5841791263619153920_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=5-rAa6IYHz0AX8irhTa&_nc_ht=scontent-xsp1-2.xx&oh=3decff2228b33652b20ce3212ebf1da1&oe=5F90C0CE" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/15945589_178524045959283_5841791263619153920_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=5-rAa6IYHz0AX8irhTa&_nc_ht=scontent-xsp1-2.xx&oh=3decff2228b33652b20ce3212ebf1da1&oe=5F90C0CE">
+              </a>
+              <div class="timer">April 27, 2019 6:11 AM</div>
+              </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Bằng ngủ chít mẹ mà phải dậy xong ngủ lại</span>
+        <div class="timer bot--timer">April 27, 2019 6:12 AM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F">
+              </a>
+              <div class="timer">April 27, 2019 6:12 AM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Kệ miễn sao đc ngủ lại là đc</span>
+        <div class="timer">April 27, 2019 6:13 AM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Ua ngủ đi</span>
+        <div class="timer bot--timer">April 27, 2019 6:13 AM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/70046990_2397093660376708_5140149312902135808_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=aUrcsMX2H-MAX8hX3Jb&_nc_ht=scontent-xsp1-2.xx&oh=d64605610baf5c2134155794b1ef16e7&oe=5F9074BB" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/70046990_2397093660376708_5140149312902135808_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=aUrcsMX2H-MAX8hX3Jb&_nc_ht=scontent-xsp1-2.xx&oh=d64605610baf5c2134155794b1ef16e7&oe=5F9074BB">
+              </a>
+              <div class="timer">April 27, 2019 6:13 AM</div>
+              </div></div><div class="message__list">
+              <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+              <div class="message__item message__item--bot">
+              <a class="bot_item" href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851556_387545504704667_1898637142_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=9-tUYHG5G3YAX874kPx&_nc_ht=scontent-xsp1-2.xx&oh=f962709a3f60f781965374740b18dda6&oe=5F901117" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851556_387545504704667_1898637142_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=9-tUYHG5G3YAX874kPx&_nc_ht=scontent-xsp1-2.xx&oh=f962709a3f60f781965374740b18dda6&oe=5F901117">
+              </a>
+              <div class="timer bot--timer">May 1, 2019 10:05 PM</div>
+              </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851558_387545611371323_978824929_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PYBo5qEgS1sAX8rP-zn&_nc_ht=scontent-xsp1-2.xx&oh=9e3c55266f0f63e3056c2452092feb93&oe=5F9204C7" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851558_387545611371323_978824929_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PYBo5qEgS1sAX8rP-zn&_nc_ht=scontent-xsp1-2.xx&oh=9e3c55266f0f63e3056c2452092feb93&oe=5F9204C7">
+              </a>
+              <div class="timer">May 2, 2019 4:52 AM</div>
+              </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Định hỏi tí mà quên rồi</span>
+        <div class="timer bot--timer">May 2, 2019 6:16 AM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F">
+              </a>
+              <div class="timer">May 2, 2019 6:18 AM</div>
+              </div></div><div class="message__list">
+            <div class="message__item message__item--bot">
+            <a class="bot_item" href="null" target="_blank">
+            <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yT/r/7tKQos3LQtg.png">
+            </a>
+            </div><div class="message__item message__item--bot">
+            <a href="null" target="_blank">
+            <span class="message message--bot">Gia đang vẫy tay chào bạn!</span>
+            </a>
+            <div class="timer bot--timer">December 9, 2019 3:17 PM</div>
+            </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Hello bạn này</span>
+        <div class="timer bot--timer">December 9, 2019 3:18 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Hè lô bạn này</span>
+        <div class="timer">December 9, 2019 3:19 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Ý bà học trường gì ở quận máy á</span>
+        <div class="timer bot--timer">December 9, 2019 3:20 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Văn lang gò vấp</span>
+        <div class="timer">December 9, 2019 3:21 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Biết chừng nào học quốc phòng không</span>
+        <div class="timer bot--timer">December 9, 2019 3:25 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Hè năm nhất</span>
+        <div class="timer">December 9, 2019 3:25 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Chắc qua quân khu 7 học á</span>
+        <div class="timer bot--timer">December 9, 2019 3:31 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Nào qua đó học hú tui ra chơi :v</span>
+        <div class="timer bot--timer">December 9, 2019 3:31 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Hao</span>
+        <div class="timer">December 9, 2019 3:31 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Đang ở trong đây hả</span>
+        <div class="timer">December 9, 2019 3:32 PM</div>
+        </div><div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/47245544_1134368373404086_2528017419713118208_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=1kZkNZFuaeAAX_Idpus&_nc_ht=scontent-xsp1-2.xx&oh=94419ced38b76ce5f1b96212a06679f1&oe=5F918E31" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/47245544_1134368373404086_2528017419713118208_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=1kZkNZFuaeAAX_Idpus&_nc_ht=scontent-xsp1-2.xx&oh=94419ced38b76ce5f1b96212a06679f1&oe=5F918E31">
+              </a>
+              <div class="timer">December 9, 2019 3:32 PM</div>
+              </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Đúng oii</span>
+        <div class="timer bot--timer">December 9, 2019 3:33 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Đang học ở quân khu neee</span>
+        <div class="timer bot--timer">December 9, 2019 3:33 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Gio đại học văn hiến đang hoc nee</span>
+        <div class="timer bot--timer">December 9, 2019 3:34 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Chết m</span>
+        <div class="timer">December 9, 2019 3:34 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Đi như này coi chừng mất ny ở nhà như chơi :v</span>
+        <div class="timer">December 9, 2019 3:35 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">M ở qk đó h luôn hả</span>
+        <div class="timer">December 9, 2019 3:35 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Đúng oii</span>
+        <div class="timer bot--timer">December 9, 2019 3:40 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Học được 2 tháng oii</span>
+        <div class="timer bot--timer">December 9, 2019 3:40 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Học đầu tháng 10 á</span>
+        <div class="timer bot--timer">December 9, 2019 3:40 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Lâu ngày gặp lại</span>
+        <div class="timer bot--timer">December 9, 2019 3:40 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Nói nghe mà buồn ghe</span>
+        <div class="timer bot--timer">December 9, 2019 3:40 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851575_126362140881916_1086262136_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=qalNOcZ6RyIAX8eZM4b&_nc_ht=scontent-xsp1-2.xx&oh=27d4df450499062de851ec8dffe1eb6a&oe=5F9195E2" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851575_126362140881916_1086262136_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=qalNOcZ6RyIAX8eZM4b&_nc_ht=scontent-xsp1-2.xx&oh=27d4df450499062de851ec8dffe1eb6a&oe=5F9195E2">
+              </a>
+              <div class="timer">December 9, 2019 3:44 PM</div>
+              </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Mất ny còn bạn nhàng đây mà</span>
+        <div class="timer bot--timer">December 9, 2019 3:47 PM</div>
+        </div><div class="message__item message__item--bot">
+              <a class="bot_item" href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer bot--timer">December 9, 2019 3:47 PM</div>
+              </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Ủa m có đc ra ngoài ko</span>
+        <div class="timer">December 9, 2019 3:55 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Rủ lớp mình đi chơi cà</span>
+        <div class="timer">December 9, 2019 3:56 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Không ra được đâu :v</span>
+        <div class="timer bot--timer">December 9, 2019 4:08 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Một là về tranh thủ</span>
+        <div class="timer bot--timer">December 9, 2019 4:08 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">2 là sáng chủ nhật ra được 2t</span>
+        <div class="timer bot--timer">December 9, 2019 4:08 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Vơ gắt dị</span>
+        <div class="timer">December 9, 2019 5:16 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">R tết m khỏi dề luôn</span>
+        <div class="timer">December 9, 2019 5:16 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Há há</span>
+        <div class="timer">December 9, 2019 5:16 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Có tết về chứ</span>
+        <div class="timer bot--timer">December 9, 2019 5:27 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Nhi học với bà luôn hả</span>
+        <div class="timer bot--timer">December 9, 2019 5:27 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Đâu</span>
+        <div class="timer">December 9, 2019 5:27 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Nhi học với đài</span>
+        <div class="timer">December 9, 2019 5:27 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Khi nào qua học</span>
+        <div class="timer bot--timer">December 9, 2019 5:28 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Kêu tui ra chơi</span>
+        <div class="timer bot--timer">December 9, 2019 5:28 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">:v</span>
+        <div class="timer bot--timer">December 9, 2019 5:28 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Giới thiêụ cho tui vài đứa bạn :v</span>
+        <div class="timer bot--timer">December 9, 2019 5:29 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F">
+              </a>
+              <div class="timer">December 9, 2019 5:36 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">M gan á</span>
+        <div class="timer">December 9, 2019 5:36 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">T méc bồ m</span>
+        <div class="timer">December 9, 2019 5:36 PM</div>
+        </div></div><div class="message__list">
+              <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+              <div class="message__item message__item--bot">
+              <a class="bot_item" href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/16685836_1458993954132381_7157059233479917568_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=PyGunM4D20MAX_zGrkv&_nc_ht=scontent-xsp1-2.xx&oh=1b6aea9a9ff445c1a2dffd032b6e950b&oe=5F90F127">
+              </a>
+              <div class="timer bot--timer">December 9, 2019 5:37 PM</div>
+              </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Bữa giờ mới có 3 trường vô học à</span>
+        <div class="timer bot--timer">December 9, 2019 5:38 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Mà chưa làm quen được đứa bạn nào hết á</span>
+        <div class="timer bot--timer">December 9, 2019 5:38 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Có đứa còn kêu tui bằng chú</span>
+        <div class="timer bot--timer">December 9, 2019 5:38 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F">
+              </a>
+              <div class="timer">December 9, 2019 5:39 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Thì người ta kêu chú bộ đội mà</span>
+        <div class="timer">December 9, 2019 5:39 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Ừm m làm quen gái đi</span>
+        <div class="timer">December 9, 2019 5:39 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">R con bồ m nó bắt xe vô Sg nó xé đầu m</span>
+        <div class="timer">December 9, 2019 5:39 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Làm quen nói chuyện chơi thoii mà</span>
+        <div class="timer bot--timer">December 9, 2019 5:41 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">:v</span>
+        <div class="timer bot--timer">December 9, 2019 5:41 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Nghĩ xa z</span>
+        <div class="timer bot--timer">December 9, 2019 5:41 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F">
+              </a>
+              <div class="timer">December 9, 2019 5:56 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Ủa ai biết đc</span>
+        <div class="timer">December 9, 2019 5:56 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Giời</span>
+        <div class="timer bot--timer">December 9, 2019 6:10 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Tui đi cả đóng người</span>
+        <div class="timer bot--timer">December 9, 2019 6:10 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Chủ yếu là ngồi đàn hát nói chuyện rồi giới thiệu tên gì gì đó thoii à :v</span>
+        <div class="timer bot--timer">December 9, 2019 6:10 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Chu</span>
+        <div class="timer">December 9, 2019 6:16 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">Sướng dị</span>
+        <div class="timer">December 9, 2019 6:16 PM</div>
+        </div><div class="message__item message__item--user">
+        <span class="message message--user">T tưởng là học đồ gắt lắm chớ</span>
+        <div class="timer">December 9, 2019 6:16 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Học khó lắm</span>
+        <div class="timer bot--timer">December 9, 2019 6:23 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Mới thi xong toán anh triết học</span>
+        <div class="timer bot--timer">December 9, 2019 6:23 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">-_-</span>
+        <div class="timer bot--timer">December 9, 2019 6:23 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Gio chuẩn bị học tin</span>
+        <div class="timer bot--timer">December 9, 2019 6:23 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Thi tiếp nè</span>
+        <div class="timer bot--timer">December 9, 2019 6:23 PM</div>
+        </div></div><div class="message__list">
+        <div class="message__item message__item--user">
+        <span class="message message--user">Ủa học mấy đó nữa hao</span>
+        <div class="timer">December 9, 2019 6:24 PM</div>
+        </div><div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F">
+              </a>
+              <div class="timer">December 9, 2019 6:24 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">T tưởng là học lộn nhào đồ ko thôi</span>
+        <div class="timer">December 9, 2019 6:24 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Gì</span>
+        <div class="timer bot--timer">December 9, 2019 6:44 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Tui thi dô học đàng quàng</span>
+        <div class="timer bot--timer">December 9, 2019 6:44 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Thi lấy bằng đồ mà</span>
+        <div class="timer bot--timer">December 9, 2019 6:45 PM</div>
+        </div></div><div class="message__list">
+              <div class="message__item message__item--user">
+              <a href="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F" target="_blank">
+              <img class="sticker" src="https://scontent-xsp1-2.xx.fbcdn.net/v/t39.1997-6/851585_387545554704662_1461411912_n.png?_nc_cat=1&_nc_sid=ac3552&efg=eyJpIjoidCJ9&_nc_ohc=JlPuB4wl4pQAX-ENGbq&_nc_ht=scontent-xsp1-2.xx&oh=e1cfd991deee3d3d50770efd42ed688b&oe=5F8F652F">
+              </a>
+              <div class="timer">December 9, 2019 7:48 PM</div>
+              </div><div class="message__item message__item--user">
+        <span class="message message--user">Thì h mới biết</span>
+        <div class="timer">December 9, 2019 7:48 PM</div>
+        </div></div><div class="message__list">
+        <img class="bot__image" src="https://graph.facebook.com/100013198926489/picture">
+        <div class="message__item message__item--bot">
+        <span class="message message--bot">Nhìn z thoii</span>
+        <div class="timer bot--timer">December 9, 2019 7:50 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Học khó lắm</span>
+        <div class="timer bot--timer">December 9, 2019 7:50 PM</div>
+        </div><div class="message__item message__item--bot">
+        <span class="message message--bot">Thời gian rảnh ít lắm</span>
+        <div class="timer bot--timer">December 9, 2019 7:50 PM</div>
+        </div>
+    </div>
+  </div>
+  </body>
+  </html>
