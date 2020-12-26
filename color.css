@@ -1,0 +1,17 @@
+body{
+     background-color:#fff;
+     font-family: 'Tahoma', serif;
+}
+
+p.custom{+
+     font-size: 120%;
+     background-color: bisque;
+     color:  #656565;
+     text-align: center;
+}
+h1.custom{
+     font-size: 95%;
+     background-color: bisque;
+     color:  #c70064;
+     text-align: center;
+}
