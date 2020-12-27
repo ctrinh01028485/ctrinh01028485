@@ -1,15 +1,11 @@
 body{
-     background-color:#fff;
+     background-color:rgb(255, 253, 230);
 }
 
-p{
-     font-size: 150%;
-     background-color: bisque;
-     color:  #0090b4;
-     text-align: center;
-}
 
 h1{
+     font-family: 'Bungee Outline', cursive;
+     font-family: 'Comfortaa', cursive;
      font-size: 250%;
      background-color: bisque;
      color:  #c70064;
@@ -17,15 +13,19 @@ h1{
 }
 
 h3{
+     font-family: 'Bungee Outline', cursive;
+     font-family: 'Comfortaa', cursive;
      font-size: 200%;
-     background-color: rgb(37, 136, 175);
+     background-color: bisque;
      color:  #2f0038;
      text-align: center;
 }
 
 h5{
+     font-family: 'Bungee Outline', cursive;
+     font-family: 'Comfortaa', cursive;
      font-size: 150%;
-     background-color: bisque;
+     
      color:  #1de22d;
      text-align: center;
 }
